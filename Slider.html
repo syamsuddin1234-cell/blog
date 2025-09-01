@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider Full-Screen Swiper</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+        /* Mengatur HTML dan Body agar tidak ada margin/padding bawaan */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden; /* Mencegah scroll vertikal */
+        }
+
+        /* Mengatur kontainer slider agar menempati seluruh viewport */
+        .swiper {
+            width: 100%;
+            height: 100vh; /* Tinggi 100% dari viewport */
+        }
+
+        /* Gaya untuk setiap slide, mengatur gambar latar */
+        .swiper-slide {
+            background-size: cover; /* Gambar menutupi seluruh area slide */
+            background-position: center; /* Posisi gambar di tengah */
+        }
+
+        /* Mengatur warna dan ukuran tombol navigasi */
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: white; /* Warna tombol putih */
+        }
+
+        /* Mengatur tampilan pagination */
+        .swiper-pagination-bullet {
+            background-color: white; /* Warna bullet putih */
+            opacity: 0.8;
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: #ff5733; /* Warna aktif oranye */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" style="background-image: url('https://picsum.photos/1920/1080?random=1');"></div>
+            <div class="swiper-slide" style="background-image: url('https://picsum.photos/1920/1080?random=2');"></div>
+            <div class="swiper-slide" style="background-image: url('https://picsum.photos/1920/1080?random=3');"></div>
+            <div class="swiper-slide" style="background-image: url('https://picsum.photos/1920/1080?random=4');"></div>
+        </div>
+        
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            direction: "horizontal", // Arah geser horizontal
+            loop: true, // Menggeser dari slide terakhir kembali ke awal
+            
+            autoplay: {
+                delay: 5000, // Otomatis bergeser setiap 5 detik
+                disableOnInteraction: false, // Lanjutkan autoplay setelah interaksi pengguna
+            },
+
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true, // Membuat bullet bisa diklik
+            },
+            
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    </script>
+</body>
+</html>
